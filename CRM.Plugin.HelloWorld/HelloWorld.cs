@@ -50,11 +50,10 @@ namespace CRM.Plugin.HelloWorld
 
                     using (WebClient client = new WebClient())
                     {
-                        client.Headers["User-Agent"] =
-                        "Mozilla/4.0 (Compatible; Windows NT 5.1; MSIE 6.0) " +
-                        "(compatible; MSIE 6.0; Windows NT 5.1; " +
-                        ".NET CLR 1.1.4322; .NET CLR 2.0.50727)";
-
+                        string json = "{\"employees\":[{\"firstName\":\"John\", \"lastName\":\"Doe\"},{\"firstName\":\"Anna\", \"lastName\":\"Smith\"},{\"firstName\":\"Peter\", \"lastName\":\"Jones\"}]}";
+                        string url = "http://dudzapi.apphb.com/api/values/";
+                        client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                        client.UploadString(url, "POST", json);
                         // Download data.
                         callValue = client.DownloadString("http://dudzapi.apphb.com/api/values/5");
 
