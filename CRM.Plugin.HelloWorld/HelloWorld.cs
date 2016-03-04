@@ -46,9 +46,38 @@ namespace CRM.Plugin.HelloWorld
                         entity.Attributes.Add("new_log", string.Empty);
                     }
 
-                    var callValue = "";
 
-                    using (WebClient client = new WebClient())
+
+                    /*
+                    string verb = string.Empty;
+
+                    if (entity.FormattedValues["new_verb"].Equals("GET W/ PARAM"))
+                    {
+                        verb = "GET";
+                    }
+                    else
+                    { 
+                        verb = entity.Attributes["new_verb"].ToString();
+                    }
+                    */
+                    var callValue = "";
+                    OptionSetValue selected = entity.GetAttributeValue<OptionSetValue>("new_verb");
+
+                    
+                   
+                    
+                    entity.Attributes["new_log"] = callValue;
+
+                    
+                }
+            }
+        }
+    }
+}
+
+
+/*
+ *                     using (WebClient client = new WebClient())
                     {
                         string json = "{\"employees\":[{\"firstName\":\"John\", \"lastName\":\"Doe\"},{\"firstName\":\"Anna\", \"lastName\":\"Smith\"},{\"firstName\":\"Peter\", \"lastName\":\"Jones\"}]}";
                         string url = "http://dudzapi.apphb.com/api/values/";
@@ -58,49 +87,4 @@ namespace CRM.Plugin.HelloWorld
                         callValue = client.DownloadString("http://dudzapi.apphb.com/api/values/5");
 
                     }
-
-                    entity.Attributes["new_log"] = callValue;
-
-                    /*if (entity.Attributes.Contains("new_log") == false)
-                    {
-                        entity.Attributes.Add("new_log", "Executed! Oh Yeah!");
-                    }
-                    else
-                    {
-                        // Throw an error, because account numbers must be system generated.
-                        // Throwing an InvalidPluginExecutionException will cause the error message
-                        // to be displayed in a dialog of the Web application.
-                        throw new InvalidPluginExecutionException("The account number can only be set by the system.");
-                    }*/
-                }
-            }
-
-            //if (context.InputParameters != null)
-            //{
-                
-
-                /*
-                //entity = (Entity)context.InputParameters["Target"];
-                //Instead of getting entity from Target, we use the Image
-                Entity entity = context.PostEntityImages["PostImage"];
-
-                Money rate = (Money)entity.Attributes["po_rate"];
-                int units = (int)entity.Attributes["po_units"];
-                EntityReference parent = (EntityReference)entity.Attributes["po_parentid"];
-
-                //Multiply
-                Money total = new Money(rate.Value * units);
-
-                //Set the update entity
-                Entity parententity = new Entity("po_parententity");
-                parententity.Id = parent.Id;
-                parententity.Attributes["po_total"] = total;
-
-                //Update
-                service.Update(parententity);
-                 
-                 */
-            //}
-        }
-    }
-}
+*/
