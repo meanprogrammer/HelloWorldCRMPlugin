@@ -54,13 +54,13 @@ namespace CRM.Plugin.HelloWorld
                     switch (selected.Value)
                     {
                         case 100000000:
-                            callValue = task.DoGet();
+                            callValue = task.DoPost();
                             break;
                         case 100000001:
-                            callValue = task.DoGetWithParam();
+                            callValue = task.DoGet();
                             break;
                         case 100000002:
-                            callValue = task.DoPost();
+                            callValue = task.DoGetWithParam();
                             break;
                         case 100000003:
                             callValue = task.DoPut();
