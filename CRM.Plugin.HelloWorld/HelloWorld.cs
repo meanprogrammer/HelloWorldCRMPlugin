@@ -46,29 +46,31 @@ namespace CRM.Plugin.HelloWorld
                         entity.Attributes.Add("new_log", string.Empty);
                     }
 
-
-
-                    /*
-                    string verb = string.Empty;
-
-                    if (entity.FormattedValues["new_verb"].Equals("GET W/ PARAM"))
-                    {
-                        verb = "GET";
-                    }
-                    else
-                    { 
-                        verb = entity.Attributes["new_verb"].ToString();
-                    }
-                    */
                     var callValue = "";
                     OptionSetValue selected = entity.GetAttributeValue<OptionSetValue>("new_verb");
 
-                    
-                   
-                    
-                    entity.Attributes["new_log"] = callValue;
+                    SendRequestTask task = new SendRequestTask();
 
-                    
+                    switch (selected.Value)
+                    {
+                        case 100000000:
+                            callValue = task.DoGet();
+                            break;
+                        case 100000001:
+                            callValue = task.DoGetWithParam();
+                            break;
+                        case 100000002:
+                            callValue = task.DoPost();
+                            break;
+                        case 100000003:
+                            callValue = task.DoPut();
+                            break;
+                        case 100000004:
+                            callValue = task.DoDelete();
+                            break;
+                    }
+
+                    entity.Attributes["new_log"] = callValue;
                 }
             }
         }
