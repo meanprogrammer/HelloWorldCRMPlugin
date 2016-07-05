@@ -37,7 +37,15 @@ namespace CRM.Plugin.HelloWorld
                 // If not, this plug-in was not registered correctly.
                 if (entity.LogicalName == "bankholiday")
                 {
+                    OptionSetValue selected = entity.GetAttributeValue<OptionSetValue>("new_verb");
 
+                    SendRequestTask task = new SendRequestTask();
+
+                    switch (selected.Value)
+                    {
+                        default:
+                            break;
+                    }
                 }
             }
         }
