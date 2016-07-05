@@ -47,7 +47,7 @@ namespace CRM.Plugin.HelloWorld
                     }
 
                     var callValue = "";
-                    OptionSetValue selected = entity.GetAttributeValue<OptionSetValue>("new_verb");
+                    OptionSetValue selected = entity.GetAttributeValue<OptionSetValue>("new_verb2");
 
                     SendRequestTask task = new SendRequestTask();
 

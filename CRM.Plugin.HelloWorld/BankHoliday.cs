@@ -35,7 +35,7 @@ namespace CRM.Plugin.HelloWorld
 
                 // Verify that the target entity represents an account.
                 // If not, this plug-in was not registered correctly.
-                if (entity.LogicalName == "bankholiday")
+                if (entity.LogicalName == "new_bankholiday")
                 {
                     OptionSetValue selected = entity.GetAttributeValue<OptionSetValue>("new_verb");
 
