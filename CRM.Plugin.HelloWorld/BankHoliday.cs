@@ -11,6 +11,7 @@ namespace CRM.Plugin.HelloWorld
     {
         public void Execute(IServiceProvider serviceProvider)
         {
+
             // Obtain the execution context from the service provider.
             IPluginExecutionContext context =
                 (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
@@ -46,6 +47,17 @@ namespace CRM.Plugin.HelloWorld
                         default:
                             break;
                     }
+
+                    if (entity.Attributes.Contains("new_holidayname") == false)
+                    {
+                        entity.Attributes.Add("new_holidayname", "99999999");
+                    }
+                    else
+                    {
+                        entity.Attributes["new_holidayname"] = "99999999";
+                    }
+
+                    service.Update(entity);
                 }
             }
         }

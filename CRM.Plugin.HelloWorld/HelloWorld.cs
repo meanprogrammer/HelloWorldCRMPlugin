@@ -26,7 +26,6 @@ namespace CRM.Plugin.HelloWorld
 
             tracingService.Trace("Tracing Service Execute");
 
-
             if (context.InputParameters.Contains("Target") &&
                 context.InputParameters["Target"] is Entity)
             {
