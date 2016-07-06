@@ -38,16 +38,15 @@ namespace CRM.Plugin.HelloWorld
                 // If not, this plug-in was not registered correctly.
                 if (entity.LogicalName == "incident")
                 {
-                    // An accountnumber attribute should not already exist because
-                    // it is system generated.
 
-                    if (entity.Attributes.Contains("new_log") == false)
+
+                    if (entity.Attributes.Contains("new_resultlog") == false)
                     {
-                        entity.Attributes.Add("new_log", string.Empty);
+                        entity.Attributes.Add("new_resultlog", string.Empty);
                     }
 
                     var callValue = "";
-                    OptionSetValue selected = entity.GetAttributeValue<OptionSetValue>("new_verb2");
+                    OptionSetValue selected = entity.GetAttributeValue<OptionSetValue>("new_verb");
 
                     SendRequestTask task = new SendRequestTask();
 
@@ -70,7 +69,8 @@ namespace CRM.Plugin.HelloWorld
                             break;
                     }
 
-                    entity.Attributes["new_log"] = callValue;
+                    entity.Attributes["new_resultlog"] = "99999999";
+                    
                 }
             }
         }
