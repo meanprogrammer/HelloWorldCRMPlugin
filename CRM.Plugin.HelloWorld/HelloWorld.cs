@@ -29,6 +29,7 @@ namespace CRM.Plugin.HelloWorld
             if (context.InputParameters.Contains("Target") &&
                 context.InputParameters["Target"] is Entity)
             {
+
                 // Obtain the target entity from the input parameters.
                 Entity entity = (Entity)context.InputParameters["Target"];
                 //</snippetAccountNumberPlugin2>
@@ -41,14 +42,18 @@ namespace CRM.Plugin.HelloWorld
 
                     if (entity.Attributes.Contains("new_resultlog") == false)
                     {
-                        entity.Attributes.Add("new_resultlog", string.Empty);
+                        entity.Attributes.Add("new_resultlog", "99999999");
                     }
+
+                    entity["new_resultlog"] = "99x999";
+
+                    service.Update(entity);
 
                     var callValue = "";
                     OptionSetValue selected = entity.GetAttributeValue<OptionSetValue>("new_verb");
 
                     SendRequestTask task = new SendRequestTask();
-
+                    /*
                     switch (selected.Value)
                     {
                         case 100000000:
@@ -68,7 +73,8 @@ namespace CRM.Plugin.HelloWorld
                             break;
                     }
 
-                    entity.Attributes["new_resultlog"] = "99999999";
+                     */
+
                     
                 }
             }
