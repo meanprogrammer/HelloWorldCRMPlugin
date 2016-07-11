@@ -76,10 +76,10 @@ namespace CRM.Plugin.HelloWorld
                     }
 
 
-                    entity["new_resultlog"] = callValue;
+                    entity.Attributes["new_resultlog"] = callValue;
                         //rand.Next(111111, 999999).ToString();
 
-                    service.Update(entity);
+                    //service.Update(entity);
                     
                 }
             }
