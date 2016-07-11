@@ -71,6 +71,8 @@ namespace CRM.Plugin.HelloWorld
                         case 100000004:
                             callValue = task.DoDelete();
                             break;
+                        default:
+                            break;
                     }
 
 
