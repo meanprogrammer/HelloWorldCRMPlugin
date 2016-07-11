@@ -9,7 +9,7 @@ namespace CRM.Plugin.HelloWorld
 {
     public class SendRequestTask
     {
-        string baseUrl = "http://dudzapi.apphb.com/";
+        string baseUrl = "http://crmapi.apphb.com/";
 
         public string DoGet() 
         {
@@ -17,7 +17,7 @@ namespace CRM.Plugin.HelloWorld
             using (WebClient client = new WebClient())
             {
                 client.Headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8";
-                result = client.DownloadString(string.Format("{0}api/values/get", baseUrl));
+                result = client.DownloadString(string.Format("{0}api/crm/get", baseUrl));
             }
             return result;
         }
@@ -28,7 +28,7 @@ namespace CRM.Plugin.HelloWorld
             using (WebClient client = new WebClient())
             {
                 client.Headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8";
-                result = client.DownloadString(string.Format("{0}/api/values/get/5", baseUrl));
+                result = client.DownloadString(string.Format("{0}api/crm/get/5", baseUrl));
             }
             return result;
         }
@@ -39,7 +39,7 @@ namespace CRM.Plugin.HelloWorld
             using (WebClient client = new WebClient())
             {
                 client.Headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8";
-                result = client.UploadString(string.Format("{0}api/values/post", baseUrl), "=test test test");
+                result = client.UploadString(string.Format("{0}api/crm/post", baseUrl), "=test test test");
             }
             return result;
         }
@@ -50,7 +50,7 @@ namespace CRM.Plugin.HelloWorld
             using (WebClient client = new WebClient())
             {
                 client.Headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8";
-                result = client.UploadString(string.Format("{0}api/values/put", baseUrl), "PUT", "=aaaa");
+                result = client.UploadString(string.Format("{0}api/crm/put", baseUrl), "PUT", "=aaaa");
             }
             return result;
         }
@@ -61,7 +61,7 @@ namespace CRM.Plugin.HelloWorld
             using (WebClient client = new WebClient())
             {
                 client.Headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8";
-                result = client.UploadString(string.Format("{0}api/values/delete", baseUrl), "DELETE", "=12");
+                result = client.UploadString(string.Format("{0}api/crm/delete", baseUrl), "DELETE", "=12");
             }
             return result;
         }

@@ -38,22 +38,22 @@ namespace CRM.Plugin.HelloWorld
                 // If not, this plug-in was not registered correctly.
                 if (entity.LogicalName == "incident")
                 {
-
+                    Random rand = new Random();
 
                     if (entity.Attributes.Contains("new_resultlog") == false)
                     {
-                        entity.Attributes.Add("new_resultlog", "99999999");
+                        entity.Attributes.Add("new_resultlog", string.Empty);
                     }
 
-                    entity["new_resultlog"] = "99x999";
+                    
 
-                    service.Update(entity);
+                    
 
                     var callValue = "";
                     OptionSetValue selected = entity.GetAttributeValue<OptionSetValue>("new_verb");
 
                     SendRequestTask task = new SendRequestTask();
-                    /*
+                    
                     switch (selected.Value)
                     {
                         case 100000000:
@@ -73,8 +73,11 @@ namespace CRM.Plugin.HelloWorld
                             break;
                     }
 
-                     */
 
+                    entity["new_resultlog"] = callValue;
+                        //rand.Next(111111, 999999).ToString();
+
+                    service.Update(entity);
                     
                 }
             }
