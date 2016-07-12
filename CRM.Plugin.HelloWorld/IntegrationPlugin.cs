@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CRM.Plugin.HelloWorld
 {
-    public class HelloWorld : IPlugin
+    public class IntegrationPlugin : IPlugin
     {
         public void Execute(IServiceProvider serviceProvider)
         {
