@@ -7,8 +7,8 @@
     <ProjectGuid>{16DB85C4-240C-4B3F-8B50-D645E694A2A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CRM.Plugin.HelloWorld</RootNamespace>
-    <AssemblyName>CRM.Plugin.HelloWorld</AssemblyName>
+    <RootNamespace>CRM.Plugin.Integration</RootNamespace>
+    <AssemblyName>CRM.Plugin.Integration</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
