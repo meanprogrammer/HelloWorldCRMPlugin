@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace CRM.Plugin
 {
@@ -38,12 +39,9 @@ namespace CRM.Plugin
             var result = string.Empty;
             using (WebClient client = new WebClient())
             {
-                IntegrationModel m = new IntegrationModel() { 
-                    RecordID = 123,
-                    Description = "This is a class converted to JSON"
-                };
+                var json = "{\"RecordID\":123,\"Description\":\"This is a class converted to JSON\"}\"";
                 client.Headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8";
-                result = client.UploadString(string.Format("{0}api/crm/post", baseUrl), Newtonsoft.Json.JsonConvert.SerializeObject(m));
+                result = client.UploadString(string.Format("{0}api/crm/post", baseUrl), json);
             }
             return result;
         }
