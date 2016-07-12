@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.Plugin.HelloWorld", "CRM.Plugin.HelloWorld\CRM.Plugin.HelloWorld.csproj", "{16DB85C4-240C-4B3F-8B50-D645E694A2A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.Plugin.Integration", "CRM.Plugin.Integration\CRM.Plugin.Integration.csproj", "{16DB85C4-240C-4B3F-8B50-D645E694A2A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
