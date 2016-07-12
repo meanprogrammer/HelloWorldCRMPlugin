@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRM.Plugin.HelloWorld
+namespace CRM.Plugin
 {
     public class SendRequestTask
     {
