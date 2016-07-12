@@ -40,8 +40,13 @@ namespace CRM.Plugin
             using (WebClient client = new WebClient())
             {
                 var json = "{\"RecordID\":123,\"Description\":\"This is a class converted to JSON\"}\"";
-                client.Headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8";
-                result = client.UploadString(string.Format("{0}api/crm/post", baseUrl), json);
+
+                client.Headers[HttpRequestHeader.Accept] = "application/json";
+                client.Headers[HttpRequestHeader.ContentType] = "application/json";
+
+                var response = client.UploadData(string.Format("{0}api/crm/post", baseUrl), Encoding.UTF8.GetBytes(json));
+
+                result = Encoding.UTF8.GetString(response);
             }
             return result;
         }
