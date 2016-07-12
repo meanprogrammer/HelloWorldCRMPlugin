@@ -38,8 +38,12 @@ namespace CRM.Plugin
             var result = string.Empty;
             using (WebClient client = new WebClient())
             {
+                IntegrationModel m = new IntegrationModel() { 
+                    RecordID = 123,
+                    Description = "This is a class converted to JSON"
+                };
                 client.Headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8";
-                result = client.UploadString(string.Format("{0}api/crm/post", baseUrl), "=test test test");
+                result = client.UploadString(string.Format("{0}api/crm/post", baseUrl), Newtonsoft.Json.JsonConvert.SerializeObject(m));
             }
             return result;
         }
